@@ -1,0 +1,629 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mulish', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #282c3f;
+    overflow-x: hidden;
+}
+
+/* --- 1. Header Styles --- */
+.navbar {
+    background-color: #ff5200;
+    padding: 14px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.swiggy-s-svg {
+    width: 38px;
+    height: 38px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.logo-text {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-links button {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.nav-links button:hover {
+    opacity: 0.85;
+}
+
+.btn-app {
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.btn-sign {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    padding: 9px 22px;
+    border-radius: 10px;
+    font-weight: 700 !important;
+}
+
+/* --- 2. Main Hero Banner --- */
+.hero-section {
+    background-color: #ff5200;
+    position: relative;
+    padding: 25px 20px 50px 20px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero-banner-left {
+    position: absolute;
+    left: -10px;
+    top: 30px;
+    height: 80%;
+    width: 140px;
+    object-fit: cover;
+    clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+    pointer-events: none;
+}
+
+.hero-banner-right {
+    position: absolute;
+    right: -10px;
+    top: 30px;
+    height: 80%;
+    width: 140px;
+    object-fit: cover;
+    clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 950px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.location-box, .search-box {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.location-box { width: 290px; }
+.search-box { width: 440px; }
+
+.location-box input, .search-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    margin: 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #282c3f;
+}
+
+.location-box i { color: #ff5200; font-size: 16px; }
+.search-box i { color: #686b78; font-size: 15px; }
+
+/* Service Cards */
+.service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 16px 20px;
+    width: 280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    cursor: pointer;
+    transition: transform 0.2s;
+    position: relative;
+}
+
+.card:hover { transform: translateY(-5px); }
+
+.card-text h2 {
+    font-size: 17px;
+    font-weight: 800;
+    color: #3d4152;
+    line-height: 1.1;
+}
+
+.card-text p {
+    font-size: 11px;
+    color: #7e808c;
+    font-weight: 700;
+    margin-top: 3px;
+}
+
+.card-text .offer {
+    display: inline-block;
+    margin-top: 8px;
+    color: #e46d04;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.card-img-wrapper {
+    position: relative;
+    width: 85px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.arrow-circle {
+    position: absolute;
+    bottom: -5px;
+    left: -8px;
+    background: #e46d04;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* --- Section Controls --- */
+.section-wrapper {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 35px 20px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.subtitle-tag {
+    font-size: 11px;
+    font-weight: 800;
+    color: #e46d04;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0206ce;
+}
+
+.carousel-arrows i {
+    background: #e2e2e7;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #3d4152;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+/* --- 3. Food Categories Grid --- */
+.category-grid-food {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 20px 15px;
+}
+
+.category-item {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.category-item:hover {
+    transform: scale(1.05);
+}
+
+.category-item img {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #f0f0f0;
+}
+
+.category-item p {
+    font-size: 13px;
+    font-weight: 700;
+    color: #3d4152;
+}
+
+/* --- 4. Instamart Categories --- */
+.gray-bg {
+    background-color: #f8f8fb;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.instamart-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 15px;
+}
+
+.instamart-card {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.instamart-card:hover {
+    transform: translateY(-3px);
+}
+
+.instamart-card img {
+    width: 100%;
+    height: 110px;
+    border-radius: 16px;
+    object-fit: cover;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background-color: #f0f0f0;
+}
+
+.instamart-card p {
+    font-size: 12px;
+    font-weight: 700;
+    color: #3d4152;
+    line-height: 1.2;
+}
+
+/* --- 5. Dineout Section --- */
+.dineout-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.dineout-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    border: 1px solid #e8e8e8;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.dineout-card:hover {
+    transform: translateY(-4px);
+}
+
+.dineout-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.dineout-info {
+    padding: 12px 14px;
+}
+
+.res-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dineout-info h3 {
+    font-size: 15px;
+    font-weight: 800;
+    color: #282c3f;
+}
+
+.rating-badge {
+    background-color: #24963f;
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.dineout-info p {
+    font-size: 11px;
+    color: #686b78;
+    margin-top: 3px;
+    font-weight: 600;
+}
+
+.discount-badge-green {
+    background-color: #118a44;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* App Download Banner Section */
+.app-banner-wrapper {
+    background-color: #000000;
+    color: #ffffff;
+    margin: 40px auto;
+    max-width: 1080px;
+    border-radius: 24px;
+    padding: 25px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.food-emoji {
+    font-size: 26px;
+    position: absolute;
+    user-select: none;
+    animation: float 3s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-8px); }
+}
+
+.phone-mockup-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.mobile-device {
+    width: 100px;
+    height: 140px;
+    background: #1c1c1e;
+    border: 3px solid #3a3a3c;
+    border-radius: 18px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    position: relative;
+}
+
+.mobile-notch {
+    width: 30px;
+    height: 4px;
+    background: #3a3a3c;
+    border-radius: 2px;
+}
+
+.scanner-screen {
+    width: 100%;
+    height: 105px;
+    background: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.scanner-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Cities Grid */
+.cities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.city-btn {
+    border: 1px solid #e2e2e7;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #3d4152;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+/* --- 6. White Footer Section --- */
+footer {
+    background-color: #ffffff;
+    color: #282c3f;
+    padding: 50px 20px 30px 20px;
+    border-top: 1px solid #e2e2e7;
+}
+
+.footer-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr repeat(4, 1fr);
+    gap: 25px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-col h4 {
+    color: #282c3f;
+    font-size: 15px;
+    margin-bottom: 14px;
+    font-weight: 800;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 8px; }
+
+.footer-col ul li a {
+    color: #686b78;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+    color: #ff5200;
+}
+
+.social-links i {
+    font-size: 18px;
+    color: #686b78;
+    margin-right: 12px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.social-links i:hover {
+    color: #ff5200;
+}
+
+/* Toast Popup */
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 12px 20px;
+    position: fixed;
+    z-index: 2000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+#toast.show {
+    visibility: visible;
+    animation: fadein 0.3s, fadeout 0.3s 2.2s;
+}
+
+@keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
+@keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
+
+/* Media Queries */
+@media (max-width: 900px) {
+    .hero-banner-left, .hero-banner-right { display: none; }
+    .search-container { flex-direction: column; align-items: center; }
+    .location-box, .search-box { width: 100%; max-width: 400px; }
+    .service-cards { flex-direction: column; align-items: center; }
+    .card { width: 100%; max-width: 380px; }
+    .category-grid-food { grid-template-columns: repeat(4, 1fr); }
+    .instamart-grid { grid-template-columns: repeat(4, 1fr); }
+    .dineout-grid, .cities-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-container { grid-template-columns: repeat(2, 1fr); }
+}

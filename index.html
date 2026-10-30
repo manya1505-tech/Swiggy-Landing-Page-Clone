@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiggy Clone - Order Food & Groceries</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to external style.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Header Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a onclick="showToast('Swiggy Home Reloaded')" class="logo">
+                <div class="swiggy-s-svg">
+                    <svg viewBox="0 0 512 512" width="28" height="28">
+                        <path fill="#FF5200" d="M371.4 122.9C351.6 86 312.3 61.1 267.1 61.1c-68.7 0-124.4 55.7-124.4 124.4 0 46.2 25.1 86.6 62.3 108.1l80.2 153.2c3.5 6.7 10.5 10.9 18.1 10.9s14.6-4.2 18.1-10.9l80.2-153.2c16.1-9.3 29.8-22.3 39.8-37.7 20-30.8 19.3-71.5 0-133zm-104.3 93.6c-18.2 0-33-14.8-33-33s14.8-33 33-33 33 14.8 33 33-14.8 33-33 33z"/>
+                    </svg>
+                </div>
+                <span class="logo-text">Swiggy</span>
+            </a>
+            <div class="nav-links">
+                <button onclick="showToast('Swiggy Corporate Page')">Swiggy Corporate</button>
+                <button onclick="showToast('Partner with Us Portal')">Partner with us</button>
+                <button class="btn-app" onclick="showToast('Opening App Download Link...')">Get the App <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+                <button class="btn-sign" onclick="showToast('Sign In Modal Opened')">Sign in</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Main Hero Banner -->
+    <section class="hero-section">
+        <img class="hero-banner-left" src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&auto=format&fit=crop" alt="Vegetables Bag">
+        <img class="hero-banner-right" src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&auto=format&fit=crop" alt="Sushi Food">
+
+        <div class="hero-content">
+            <h1>Order food & groceries. Discover<br>best restaurants. Swiggy it!</h1>
+
+            <div class="search-container">
+                <div class="location-box">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" id="locationInput" placeholder="Enter your delivery location">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search for restaurant, item or more" oninput="filterCategories()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+
+            <div class="service-cards">
+                <div class="card" onclick="showToast('Navigating to Food Delivery Section')">
+                    <div class="card-text">
+                        <h2>FOOD DELIVERY</h2>
+                        <p>FROM RESTAURANTS</p>
+                        <span class="offer">UPTO 60% OFF</span>
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&auto=format&fit=crop" alt="Food Delivery">
+                        <div class="arrow-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </div>
+
+                <div class="card" onclick="showToast('Opening Instamart Grocery Store')">
+                    <div class="card-text">
+                        <h2>INSTAMART</h2>
+                        <p>INSTANT GROCERY</p>
+                        <span class="offer">UPTO 60% OFF</span>
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=200&auto=format&fit=crop" alt="Instamart Grocery">
+                        <div class="arrow-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </div>
+
+                <div class="card" onclick="showToast('Exploring Dineout Dining Deals')">
+                    <div class="card-text">
+                        <h2>DINEOUT</h2>
+                        <p>EAT OUT & SAVE MORE</p>
+                        <span class="offer">UPTO 50% OFF</span>
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=200&auto=format&fit=crop" alt="Dineout Restaurant">
+                        <div class="arrow-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Food Options -->
+    <section class="section-wrapper">
+        <div class="section-header">
+            <h2 class="section-title">Order our best food options</h2>
+            <div class="carousel-arrows">
+                <i class="fa-solid fa-chevron-left" onclick="showToast('Scrolling Left')"></i>
+                <i class="fa-solid fa-chevron-right" onclick="showToast('Scrolling Right')"></i>
+            </div>
+        </div>
+        <div class="category-grid-food" id="foodGrid">
+            <div class="category-item" onclick="selectCategory('North Indian')"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&auto=format&fit=crop" alt=""><p>North Indian</p></div>
+            <div class="category-item" onclick="selectCategory('Pizza')"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&auto=format&fit=crop" alt=""><p>Pizza</p></div>
+            <div class="category-item" onclick="selectCategory('Burger')"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&auto=format&fit=crop" alt=""><p>Burger</p></div>
+            <div class="category-item" onclick="selectCategory('Cakes')"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&auto=format&fit=crop" alt=""><p>Cakes</p></div>
+            <div class="category-item" onclick="selectCategory('Biryani')"><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&auto=format&fit=crop" alt=""><p>Biryani</p></div>
+            <div class="category-item" onclick="selectCategory('Rolls')"><img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=200&auto=format&fit=crop" alt=""><p>Rolls</p></div>
+            <div class="category-item" onclick="selectCategory('Desserts')"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=200&auto=format&fit=crop" alt=""><p>Desserts</p></div>
+            <div class="category-item" onclick="selectCategory('South Indian')"><img src="https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?w=200&auto=format&fit=crop" alt=""><p>South Indian</p></div>
+            <div class="category-item" onclick="selectCategory('Paratha')"><img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=200&auto=format&fit=crop" alt=""><p>Paratha</p></div>
+            <div class="category-item" onclick="selectCategory('Pasta')"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=200&auto=format&fit=crop" alt="Pasta"><p>Pasta</p></div>
+            <div class="category-item" onclick="selectCategory('Ice Cream')"><img src="https://images.unsplash.com/photo-1560008581-09826d1de69e?w=200&auto=format&fit=crop" alt=""><p>Ice Cream</p></div>
+            <div class="category-item" onclick="selectCategory('Pastry')"><img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=200&auto=format&fit=crop" alt="Pastry"><p>Pastry</p></div>
+        </div>
+    </section>
+
+    <!-- 4. Instamart Groceries Section -->
+    <section class="gray-bg">
+        <div class="section-wrapper">
+            <div class="subtitle-tag">Everyday essentials, delivered fast</div>
+            <div class="section-header">
+                <h2 class="section-title">Shop groceries on Instamart</h2>
+                <div class="carousel-arrows">
+                    <i class="fa-solid fa-chevron-left" onclick="showToast('Scrolling Left')"></i>
+                    <i class="fa-solid fa-chevron-right" onclick="showToast('Scrolling Right')"></i>
+                </div>
+            </div>
+            <div class="instamart-grid">
+                <div class="instamart-card" onclick="selectCategory('Fresh Vegetables')"><img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=200&auto=format&fit=crop" alt=""><p>Fresh Vegetables</p></div>
+                <div class="instamart-card" onclick="selectCategory('Fresh Fruits')"><img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=200&auto=format&fit=crop" alt=""><p>Fresh Fruits</p></div>
+                <div class="instamart-card" onclick="selectCategory('Dairy, Bread & Eggs')"><img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=200&auto=format&fit=crop" alt=""><p>Dairy, Bread & Eggs</p></div>
+                <div class="instamart-card" onclick="selectCategory('Rice, Atta & Dals')"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200&auto=format&fit=crop" alt=""><p>Rice, Atta & Dals</p></div>
+                <div class="instamart-card" onclick="selectCategory('Masalas & Dry Fruits')"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=200&auto=format&fit=crop" alt=""><p>Masalas & Dry Fruits</p></div>
+                <div class="instamart-card" onclick="selectCategory('Oils & Ghee')"><img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=200&auto=format&fit=crop" alt=""><p>Oils & Ghee</p></div>
+                <div class="instamart-card" onclick="selectCategory('Munchies')"><img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=200&auto=format&fit=crop" alt=""><p>Munchies</p></div>
+                <div class="instamart-card" onclick="selectCategory('Cold Drinks')"><img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=200&auto=format&fit=crop" alt=""><p>Cold Drinks</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Dineout Section -->
+    <section class="section-wrapper">
+        <div class="subtitle-tag">Great food, greater experiences</div>
+        <div class="section-header">
+            <h2 class="section-title">Discover best restaurants on Dineout</h2>
+            <a style="color:#ff5200; font-weight:700; cursor:pointer;" onclick="showToast('Opening All Dineout Restaurants')">Explore all <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+        <div class="dineout-grid">
+            <div class="dineout-card" onclick="showToast('Opening Rolls Mania Page')">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=300&auto=format&fit=crop" alt="">
+                <div class="dineout-info">
+                    <div class="res-header">
+                        <h3>Rolls Mania</h3>
+                        <span class="rating-badge">4.3 ★</span>
+                    </div>
+                    <p>Rolls • North Indian</p>
+                    <span class="discount-badge-green">FLAT 20% OFF</span>
+                </div>
+            </div>
+
+            <div class="dineout-card" onclick="showToast('Opening The Yellow Chilli Page')">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=300&auto=format&fit=crop" alt="">
+                <div class="dineout-info">
+                    <div class="res-header">
+                        <h3>The Yellow Chilli</h3>
+                        <span class="rating-badge">4.5 ★</span>
+                    </div>
+                    <p>North Indian • Mughlai</p>
+                    <span class="discount-badge-green">UP TO 30% OFF</span>
+                </div>
+            </div>
+
+            <div class="dineout-card" onclick="showToast('Opening Jain Shuddh Bhojnalaya Page')">
+                <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=300&auto=format&fit=crop" alt="">
+                <div class="dineout-info">
+                    <div class="res-header">
+                        <h3>Jain Shudh Bhojnalaya</h3>
+                        <span class="rating-badge">4.2 ★</span>
+                    </div>
+                    <p>Pure Veg • Indian</p>
+                    <span class="discount-badge-green">FLAT 15% OFF</span>
+                </div>
+            </div>
+
+            <div class="dineout-card" onclick="showToast('Opening Giani\'s Ice Cream Page')">
+                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&auto=format&fit=crop" alt="">
+                <div class="dineout-info">
+                    <div class="res-header">
+                        <h3>Giani's</h3>
+                        <span class="rating-badge">4.1 ★</span>
+                    </div>
+                    <p>Ice Cream • Desserts</p>
+                    <span class="discount-badge-green">UP TO 20% OFF</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Download Banner -->
+    <div class="app-banner-wrapper">
+        <span class="food-emoji" style="top: 15px; left: 350px;">🍕</span>
+        <span class="food-emoji" style="bottom: 15px; left: 420px; animation-delay: 0.8s;">🍔</span>
+        <span class="food-emoji" style="top: 20px; right: 280px; animation-delay: 1.5s;">🍟</span>
+        <span class="food-emoji" style="bottom: 12px; right: 220px; animation-delay: 0.4s;">🍩</span>
+
+        <div>
+            <h2>Get the Swiggy App now!</h2>
+            <p style="color: #a9abb2; font-size: 13px; margin-top: 4px;">For better experience, download the Swiggy app now</p>
+        </div>
+
+        <div class="phone-mockup-wrapper">
+            <div class="mobile-device">
+                <div class="mobile-notch"></div>
+                <div class="scanner-screen">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=SwiggyApp" alt="QR Scanner">
+                </div>
+            </div>
+            <div>
+                <p style="font-size: 12px; font-weight: 700; color: #ffffff;">Scan to Download</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cities Grid -->
+    <section class="section-wrapper">
+        <h2 class="section-title" style="margin-bottom: 20px;">Cities with food delivery</h2>
+        <div class="cities-grid">
+            <div class="city-btn" onclick="selectCity('Bangalore')">Order Food online in Bangalore</div>
+            <div class="city-btn" onclick="selectCity('Gurgaon')">Order Food online in Gurgaon</div>
+            <div class="city-btn" onclick="selectCity('Hyderabad')">Order Food online in Hyderabad</div>
+            <div class="city-btn" onclick="selectCity('Delhi')">Order Food online in Delhi</div>
+            <div class="city-btn" onclick="selectCity('Mumbai')">Order Food online in Mumbai</div>
+            <div class="city-btn" onclick="selectCity('Pune')">Order Food online in Pune</div>
+            <div class="city-btn" onclick="selectCity('Kolkata')">Order Food online in Kolkata</div>
+            <div class="city-btn" style="color: #ff5200; border-color: #ff5200;" onclick="showToast('Loading More Cities...')">Show More <i class="fa-solid fa-chevron-down"></i></div>
+        </div>
+    </section>
+
+    <!-- 6. White Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div class="footer-brand">
+                    <div class="swiggy-s-svg" style="width:32px; height:32px; border:1px solid #e2e2e7;">
+                        <svg viewBox="0 0 512 512" width="22" height="22">
+                            <path fill="#FF5200" d="M371.4 122.9C351.6 86 312.3 61.1 267.1 61.1c-68.7 0-124.4 55.7-124.4 124.4 0 46.2 25.1 86.6 62.3 108.1l80.2 153.2c3.5 6.7 10.5 10.9 18.1 10.9s14.6-4.2 18.1-10.9l80.2-153.2c16.1-9.3 29.8-22.3 39.8-37.7 20-30.8 19.3-71.5 0-133zm-104.3 93.6c-18.2 0-33-14.8-33-33s14.8-33 33-33 33 14.8 33 33-14.8 33-33 33z"/>
+                        </svg>
+                    </div>
+                    <span style="font-size: 22px; font-weight: 800; color: #282c3f;">Swiggy</span>
+                </div>
+                <p style="font-size: 12px; color: #686b78; margin-top:5px;">© 2026 Swiggy Limited</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a onclick="showToast('About Us Page')">About Us</a></li>
+                    <li><a onclick="showToast('Swiggy Corporate')">Swiggy Corporate</a></li>
+                    <li><a onclick="showToast('Careers Page')">Careers</a></li>
+                    <li><a onclick="showToast('Team Information')">Team</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact us</h4>
+                <ul>
+                    <li><a onclick="showToast('Help & Support Portal')">Help & Support</a></li>
+                    <li><a onclick="showToast('Partner Portal')">Partner with us</a></li>
+                    <li><a onclick="showToast('Delivery Partner Registration')">Ride with us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Available in</h4>
+                <ul>
+                    <li><a onclick="selectCity('Bangalore')">Bangalore</a></li>
+                    <li><a onclick="selectCity('Gurgaon')">Gurgaon</a></li>
+                    <li><a onclick="selectCity('Hyderabad')">Hyderabad</a></li>
+                    <li><a onclick="selectCity('Delhi')">Delhi</a></li>
+                    <li><a onclick="selectCity('Mumbai')">Mumbai</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Life at Swiggy</h4>
+                <ul>
+                    <li><a onclick="showToast('Explore Blog')">Explore with Swiggy</a></li>
+                    <li><a onclick="showToast('Swiggy News')">Swiggy News</a></li>
+                    <li><a onclick="showToast('Snackables Page')">Snackables</a></li>
+                </ul>
+                <div class="social-links">
+                    <i class="fa-brands fa-linkedin" onclick="showToast('Opening LinkedIn')"></i>
+                    <i class="fa-brands fa-instagram" onclick="showToast('Opening Instagram')"></i>
+                    <i class="fa-brands fa-facebook-f" onclick="showToast('Opening Facebook')"></i>
+                    <i class="fa-brands fa-pinterest" onclick="showToast('Opening Pinterest')"></i>
+                    <i class="fa-brands fa-twitter" onclick="showToast('Opening Twitter')"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Popup Element -->
+    <div id="toast">Message</div>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.innerText = message;
+            toast.className = "show";
+            setTimeout(function(){ 
+                toast.className = toast.className.replace("show", ""); 
+            }, 2500);
+        }
+
+        function selectCategory(categoryName) {
+            showToast("Searching items for: " + categoryName);
+            document.getElementById("searchInput").value = categoryName;
+            filterCategories();
+        }
+
+        function selectCity(cityName) {
+            showToast("Location updated to: " + cityName);
+            document.getElementById("locationInput").value = cityName;
+        }
+
+        function filterCategories() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const foodItems = document.querySelectorAll("#foodGrid .category-item");
+            
+            foodItems.forEach(item => {
+                const text = item.querySelector("p").innerText.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
